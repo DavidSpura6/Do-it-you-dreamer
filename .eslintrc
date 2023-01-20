@@ -1,0 +1,10 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": ["eslint:recommended"],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "no-console":"warn"
+    }
+}
