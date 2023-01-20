@@ -3,7 +3,7 @@ type StoreApi<T> = {
   getState: () => T;
   subscribe: (listener: (state: T, prevState: T) => void) => () => void;
 };
-type StateCreator<T> = (
+export type StateCreator<T> = (
   setState: StoreApi<T>["setState"],
   getState: StoreApi<T>["getState"],
   store: StoreApi<T>
@@ -25,6 +25,7 @@ export const createStore: CreateStore = (createState) => {
         typeof nextState !== "object"
           ? (nextState as TState)
           : Object.assign({}, state, nextState);
+
       listeners.forEach((listener) => listener(state, previousState));
     }
   };
@@ -38,6 +39,5 @@ export const createStore: CreateStore = (createState) => {
 
   const api = { setState, getState, subscribe };
   state = createState(setState, getState, api);
-
   return api;
 };
