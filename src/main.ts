@@ -1,5 +1,6 @@
 import "./style.css";
-import "./style/theme/theme.css";
+import "./theme/theme.css";
+import "./theme/foundations/foundations.scss";
 import typescriptLogo from "./typescript.svg";
 import { setupCounter } from "./counter";
 

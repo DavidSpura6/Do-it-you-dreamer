@@ -7,5 +7,6 @@ export function setupCounter(element: HTMLButtonElement) {
   element.addEventListener("click", () => {
     setCounter(counter + 1);
   });
+  element.classList.add("outlined");
   setCounter(0);
 }
