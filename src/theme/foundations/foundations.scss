@@ -1,2 +1,18 @@
-@import "spacing";
-@import "buttons";
+:root {
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-28: 1.75rem;
+  --space-32: 2rem;
+  --space-36: 3.25rem;
+  --space-42: 2.625rem;
+  --space-48: 3rem;
+
+  --radius-4: 0.25rem;
+  --radius-8: 0.5rem;
+  --radius-12: 0.75rem;
+  --radius-16: 1rem;
+  --radius-18: 1.125rem;
+}

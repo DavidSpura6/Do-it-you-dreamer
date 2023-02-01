@@ -4,7 +4,7 @@
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "strict": true,
     "noImplicitAny": false,
     "noImplicitReturns": true,
