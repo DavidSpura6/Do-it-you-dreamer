@@ -3,6 +3,17 @@ import "./theme/theme.css";
 import "./theme/foundations/foundations.scss";
 import typescriptLogo from "./typescript.svg";
 import { setupCounter } from "./counter";
+import { Button } from "components/Button";
+import { Checkbox } from "components/Checkbox";
+
+const button = Button("Hello World", {
+  variant: "outlined",
+  onClick: () => console.log("click"),
+});
+const checkbox = Checkbox();
+
+document.body.appendChild(button);
+document.body.appendChild(checkbox);
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
