@@ -1,0 +1,25 @@
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-8);
+  text-align: center;
+  background: transparent;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  font-weight: bold;
+}
+
+.outlined {
+  border: 1px solid var(--md-sys-color-secondary);
+  color: var(--md-sys-color-secondary);
+}
+
+.solid {
+  text-align: center;
+}
+
+.icon {
+  text-align: center;
+}
