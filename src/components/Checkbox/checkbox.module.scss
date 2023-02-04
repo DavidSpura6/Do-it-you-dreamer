@@ -9,7 +9,7 @@
   border-style: solid;
   border-radius: 0.125rem;
   background: transparent;
-  border-color: var(--md-sys-color-primary);
+  border-color: var(--primary);
   svg {
     visibility: hidden;
     fill: none;
@@ -41,7 +41,7 @@
   }
   input:checked {
     & + .checkbox__control {
-      background: var(--md-sys-color-primary);
+      background: var(--primary);
       svg {
         visibility: visible;
       }

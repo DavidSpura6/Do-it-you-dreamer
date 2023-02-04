@@ -1,0 +1,31 @@
+@mixin side_column {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nav {
+  width: 100%;
+  height: var(--size-36);
+  background: var(--primary-container);
+}
+
+#layout {
+  width: 100vw;
+  height: calc(100vh - var(--size-36));
+  display: flex;
+  #weekdays {
+    @include side_column;
+    background: var(--secondary-container);
+  }
+  #day_view {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #overview {
+    @include side_column;
+  }
+}
