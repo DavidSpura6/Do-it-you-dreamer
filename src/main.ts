@@ -3,6 +3,7 @@ import "./style.scss";
 import "./theme/layout.scss";
 import "./theme/foundations/foundations.scss";
 import typescriptLogo from "./typescript.svg";
+import "./modules/DayView";
 // import { setupCounter } from "./counter";
 
 // document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
