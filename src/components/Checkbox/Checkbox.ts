@@ -1,12 +1,13 @@
 import { create } from "lib/DOM";
+import checkmark from "assets/done_20.svg?raw";
 import variants from "./checkbox.module.scss";
-import checkmark from "./checkmark.svg?raw";
 
-export function Checkbox(onChange?: (e: Event) => void) {
+export function Checkbox(ariaLabel: string, onChange?: (e: Event) => void) {
   const label = create("label");
   label.classList.add(variants.primary);
 
   const input = create("input");
+  input.ariaLabel = ariaLabel;
   input.type = "checkbox";
   input.checked = true;
 
@@ -14,14 +15,10 @@ export function Checkbox(onChange?: (e: Event) => void) {
   checkboxControl.classList.add(variants.checkbox__control);
   checkboxControl.innerHTML = checkmark;
 
-  const checkboxLabel = create("span");
-  checkboxLabel.classList.add(variants.checkbox__label);
-  checkboxLabel.innerText = "Hello";
-
   if (onChange)
     input.addEventListener("input", (e) => onChange((e.target as any).checked));
 
-  label.append(input, checkboxControl, checkboxLabel);
+  label.append(input, checkboxControl);
 
   return label;
 }
