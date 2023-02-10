@@ -1,24 +1,48 @@
 import style from "./task.module.scss";
 import { Checkbox } from "components/Checkbox";
-import { create } from "lib/DOM";
+import { createHtml } from "lib/DOM";
 import closeIcon from "assets/close.svg?raw";
+import { Button } from "components/Button";
+import { Task as TaskType, taskStore } from "modules/stores/tasks";
 
-export default function Task() {
-  const checkbox = Checkbox("task_check");
+const store = taskStore.getState();
+
+export default function Task(task: TaskType) {
+  const checkbox = Checkbox(
+    task.heading,
+    (isChecked) =>
+      store.updateTask({
+        id: task.id,
+        weekday: task.weekday,
+        update: {
+          isComplete: isChecked,
+        },
+      }),
+    {
+      includeLabel: true,
+      checked: task.isComplete,
+    }
+  );
   checkbox.classList.add(style.checkbox);
-  const title = create("p");
-  title.innerText = "Watch a movie";
 
-  const task = create("div");
-  task.classList.add(style.container);
-  task.append(checkbox, title);
+  const button = Button("delete", {
+    variant: "icon",
+    onClick: () =>
+      store.deleteTask({
+        weekday: task.weekday,
+        id: task.id,
+      }),
+    icon: closeIcon,
+  });
 
-  const close = create("div");
-  close.classList.add(style.close);
-  close.innerHTML = closeIcon;
+  const html = /*html*/ `<div class="${style.task}">
+  <div class="${style.container} checkbox_wrapper"></div>
+  <div class="${style.close} button_wrapper"></div>
+  </div>
+  `;
 
-  const wrapper = create("div");
-  wrapper.append(task, close);
-  wrapper.classList.add(style.task);
-  return wrapper;
+  const element = createHtml(html);
+  element.querySelector(".checkbox_wrapper")!.prepend(checkbox);
+  element.querySelector(".button_wrapper")!.prepend(button);
+  return element;
 }
