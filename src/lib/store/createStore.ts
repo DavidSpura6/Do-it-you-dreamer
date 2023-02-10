@@ -1,5 +1,5 @@
 type StoreApi<T> = {
-  setState: (partial: T | Partial<T>) => void;
+  setState: (partial: T | Partial<T> | { (state: T): T | Partial<T> }) => void;
   getState: () => T;
   subscribe: (listener: (state: T, prevState: T) => void) => () => void;
 };
@@ -18,7 +18,10 @@ export const createStore: CreateStore = (createState) => {
   const listeners: Set<Listener> = new Set();
 
   const setState: StoreApi<TState>["setState"] = (partial) => {
-    const nextState = typeof partial === "function" ? partial(state) : partial;
+    const nextState =
+      typeof partial === "function"
+        ? (partial as (state: TState) => TState)(state)
+        : partial;
     if (!Object.is(nextState, state)) {
       const previousState = state;
       state =
