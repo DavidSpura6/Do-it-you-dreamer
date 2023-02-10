@@ -21,5 +21,14 @@ button {
 }
 
 .icon {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: var(--space-4);
+  transition: background 0.2s;
+  width: max-content;
+  &:hover {
+    background: var(--outline);
+  }
 }
