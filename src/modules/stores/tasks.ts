@@ -9,13 +9,13 @@ export type Task = {
   time?: string;
   isDeleted: boolean;
   isComplete: boolean;
-  id: number;
+  id: string;
 };
 
 type TaskStore = {
   currentWeekday: string;
   tasks: {
-    [weekday: string]: { [id: number]: Task };
+    [weekday: string]: { [id: string]: Task };
   };
   addTask({ weekday, task }: { weekday: string; task: Task }): void;
   updateTask({
@@ -24,11 +24,11 @@ type TaskStore = {
     update,
   }: {
     weekday: string;
-    id: number;
+    id: string;
     update: Partial<Task>;
   }): void;
-  deleteTask({ weekday, id }: { weekday: string; id: number }): void;
-  getTasksForWeekday(weekday: string): { [id: number]: Task };
+  deleteTask({ weekday, id }: { weekday: string; id: string }): void;
+  getTasksForWeekday(weekday: string): { [id: string]: Task };
   getHasTasksForWeekday(weekday: string): boolean;
 };
 

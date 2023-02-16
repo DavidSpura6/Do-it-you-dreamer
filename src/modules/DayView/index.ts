@@ -1,10 +1,11 @@
-import styles from "./dayview.module.scss";
+import { nanoid } from "nanoid";
 import addIcon from "assets/add_24.svg?raw";
 import { get, createHtml, create } from "lib/DOM";
 import { taskStore } from "modules/stores/tasks";
 import { Button } from "components/Button";
-import Task from "./components/Task";
 import { getSimpleDate } from "utils/simpeDate";
+import Task from "./components/Task";
+import styles from "./dayview.module.scss";
 
 const store = taskStore.getState();
 
@@ -40,10 +41,7 @@ function createGUI() {
       store.addTask({
         weekday: getSimpleDate(new Date()),
         task: {
-          id:
-            Object.keys(
-              taskStore.getState().getTasksForWeekday(todaySimpleDate) || {}
-            ).length + 1,
+          id: nanoid(),
           date: new Date(),
           heading: "New Task",
           text: "Some description",
