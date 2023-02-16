@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "type-scss":"typed-scss-modules src --nameFormat none --exportType default"
+    "type-scss": "typed-scss-modules src --nameFormat none --exportType default"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
@@ -20,5 +20,8 @@
     "typescript-plugin-css-modules": "^4.1.1",
     "vite": "^4.0.0",
     "vite-tsconfig-paths": "^4.0.5"
+  },
+  "dependencies": {
+    "nanoid": "^4.0.1"
   }
 }
