@@ -1,8 +1,10 @@
 .wrapper {
   width: 100%;
-  :hover {
-    background-color: var(--primary-container);
-  }
+  border: none;
+  padding: 0;
+  background: var(--surface1-light);
+  transition: background 0.2s;
+  cursor: pointer;
 }
 .container {
   display: flex;
@@ -11,12 +13,16 @@
   padding-right: var(--space-24);
   padding-top: var(--space-16);
   padding-bottom: var(--space-16);
-  background-color: var(--surface1-light);
   color: var(--on-surface);
+  align-items: center;
 }
 .dayName {
   font-size: 26px;
 }
 .taskCompletion {
   font-size: 20px;
+}
+
+.active {
+  background: var(--primary-container);
 }
