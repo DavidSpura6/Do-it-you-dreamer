@@ -1,7 +1,7 @@
 export function getCurrentWeek() {
   const week: {
     name: string;
-    date: string;
+    date: Date;
     dayIndex: number;
   }[] = [];
   const today = new Date();
@@ -19,7 +19,7 @@ export function getCurrentWeek() {
     );
     week.push({
       name: day.toLocaleString(navigator.language, { weekday: "long" }),
-      date: day.toLocaleDateString(),
+      date: day,
       dayIndex: i + 1,
     });
   }
