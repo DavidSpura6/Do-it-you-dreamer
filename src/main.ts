@@ -3,3 +3,4 @@ import "./style.scss";
 import "./theme/layout.scss";
 import "./theme/foundations/foundations.scss";
 import "./modules/DayView";
+import "./modules/Weekdays";

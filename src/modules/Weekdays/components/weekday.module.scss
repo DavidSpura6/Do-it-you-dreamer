@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  :hover {
+    background-color: var(--primary-container);
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  background-color: var(--surface1-light);
+  color: var(--on-surface);
+}
+.dayName {
+  font-size: 26px;
+}
+.taskCompletion {
+  font-size: 20px;
+}

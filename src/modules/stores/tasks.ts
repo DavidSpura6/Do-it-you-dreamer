@@ -30,6 +30,7 @@ type TaskStore = {
   deleteTask({ weekday, id }: { weekday: string; id: string }): void;
   getTasksForWeekday(weekday: string): { [id: string]: Task };
   getHasTasksForWeekday(weekday: string): boolean;
+  setCurrentWeekday(currentWeekday: string): void;
 };
 
 export const taskStore = createStore<TaskStore>(
@@ -76,6 +77,9 @@ export const taskStore = createStore<TaskStore>(
       },
       getHasTasksForWeekday(weekday) {
         return Object.keys(get().tasks[weekday] || {}).length > 0;
+      },
+      setCurrentWeekday(currentWeekday) {
+        set({ currentWeekday });
       },
     }),
     {
