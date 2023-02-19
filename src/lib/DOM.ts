@@ -10,11 +10,9 @@ export function create<T extends keyof HTMLElementTagNameMap>(
   return el;
 }
 
-export function get(key: ElementIDs): HTMLDivElement;
-export function get(key: keyof HTMLElementTagNameMap): HTMLDivElement;
-export function get(key: string): HTMLDivElement {
+export const get: typeof document.querySelector = (key) => {
   return document.querySelector(key)!;
-}
+};
 
 export const createHtml = (html: string) => {
   const range = document.createRange();
