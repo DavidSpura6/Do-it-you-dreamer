@@ -1,4 +1,4 @@
-button {
+@mixin button_base {
   border: none;
   cursor: pointer;
   border-radius: var(--radius-8);
@@ -12,15 +12,18 @@ button {
 }
 
 .outlined {
+  @include button_base;
   border: 1px solid var(--secondary);
   color: var(--secondary);
 }
 
 .solid {
+  @include button_base;
   text-align: center;
 }
 
 .icon {
+  @include button_base;
   display: flex;
   justify-content: center;
   align-items: center;
