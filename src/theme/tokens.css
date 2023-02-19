@@ -1,5 +1,5 @@
 :root {
-  --source: #36AE7C;
+  --source: #36ae7c;
   /* primary */
   --primary0: #000000;
   --primary10: #002113;
@@ -122,6 +122,10 @@
   --background-light: #fbfdf8;
   --on-background-light: #191c1a;
   --surface-light: #fbfdf8;
+  --surface1-light: #eff7f0;
+  --surface2-light: #e8f3eb;
+  --surface3-light: #e1eee6;
+  --surface4-light: #d9eae0;
   --on-surface-light: #191c1a;
   --surface-variant-light: #dce5dd;
   --on-surface-variant-light: #404943;
@@ -212,7 +216,7 @@
   --body-large-font-weight: 400px;
   --body-large-font-size: 16px;
   --body-large-line-height: 24px;
-  --body-large-letter-spacing: 0.50px;
+  --body-large-letter-spacing: 0.5px;
   /* body - medium */
   --body-medium-font-family-name: Roboto;
   --body-medium-font-family-style: Regular;
@@ -226,28 +230,28 @@
   --body-small-font-weight: 400px;
   --body-small-font-size: 12px;
   --body-small-line-height: 16px;
-  --body-small-letter-spacing: 0.40px;
+  --body-small-letter-spacing: 0.4px;
   /* label - large */
   --label-large-font-family-name: Roboto;
   --label-large-font-family-style: Medium;
   --label-large-font-weight: 500px;
   --label-large-font-size: 14px;
   --label-large-line-height: 20px;
-  --label-large-letter-spacing: 0.10px;
+  --label-large-letter-spacing: 0.1px;
   /* label - medium */
   --label-medium-font-family-name: Roboto;
   --label-medium-font-family-style: Medium;
   --label-medium-font-weight: 500px;
   --label-medium-font-size: 12px;
   --label-medium-line-height: 16px;
-  --label-medium-letter-spacing: 0.50px;
+  --label-medium-letter-spacing: 0.5px;
   /* label - small */
   --label-small-font-family-name: Roboto;
   --label-small-font-family-style: Medium;
   --label-small-font-weight: 500px;
   --label-small-font-size: 11px;
   --label-small-line-height: 16px;
-  --label-small-letter-spacing: 0.50px;
+  --label-small-letter-spacing: 0.5px;
   /* title - large */
   --title-large-font-family-name: Roboto;
   --title-large-font-family-style: Regular;
@@ -268,5 +272,5 @@
   --title-small-font-weight: 500px;
   --title-small-font-size: 14px;
   --title-small-line-height: 20px;
-  --title-small-letter-spacing: 0.10px;
+  --title-small-letter-spacing: 0.1px;
 }

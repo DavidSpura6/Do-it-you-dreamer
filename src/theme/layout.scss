@@ -8,7 +8,7 @@
 #nav {
   width: 100%;
   height: var(--size-36);
-  background: var(--primary-container);
+  background: var(--primary);
 }
 
 #layout {
@@ -17,7 +17,7 @@
   display: flex;
   #weekdays {
     @include side_column;
-    background: var(--secondary-container);
+    background: var(--surface1-light);
   }
   #day_view {
     width: 60%;
