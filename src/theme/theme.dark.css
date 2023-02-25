@@ -18,6 +18,10 @@
  --background: var(--background-dark);
  --on-background: var(--on-background-dark);
  --surface: var(--surface-dark);
+ --surface1: var(--surface1-dark); 
+ --surface2: var(--surface2-dark); 
+ --surface3: var(--surface3-dark); 
+ --surface4: var(--surface4-dark); 
  --on-surface: var(--on-surface-dark);
  --surface-variant: var(--surface-variant-dark);
  --on-surface-variant: var(--on-surface-variant-dark);

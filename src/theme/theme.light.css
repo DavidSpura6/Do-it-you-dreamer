@@ -18,6 +18,10 @@
  --background: var(--background-light);
  --on-background: var(--on-background-light);
  --surface: var(--surface-light);
+ --surface1: var(--surface1-light); 
+ --surface2: var(--surface2-light); 
+ --surface3: var(--surface3-light); 
+ --surface4: var(--surface4-light); 
  --on-surface: var(--on-surface-light);
  --surface-variant: var(--surface-variant-light);
  --on-surface-variant: var(--on-surface-variant-light);

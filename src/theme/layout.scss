@@ -17,7 +17,7 @@
   display: flex;
   #weekdays {
     @include side_column;
-    background: var(--surface1-light);
+    background: var(--surface1);
   }
   #day_view {
     width: 60%;
