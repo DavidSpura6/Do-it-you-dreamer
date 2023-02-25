@@ -1,4 +1,3 @@
-import { read } from "fs";
 import { create } from "lib/DOM";
 import { taskStore } from "modules/stores/tasks";
 import { getSimpleDate } from "utils/simpeDate";
@@ -37,20 +36,25 @@ export default function Weekday(day: {
 
   weekday.append(dayName, taskCompletion);
 
-  const wrapper = create("button");
-  wrapper.id = `date_${currentWeekday}`;
-  wrapper.classList.add(style.wrapper);
-  wrapper.append(weekday);
-  wrapper.addEventListener("click", () => {
+  const button = create("button");
+  button.type = "button";
+  button.id = `date_${currentWeekday}`;
+  button.classList.add(style.button);
+  button.append(weekday);
+  button.addEventListener("click", () => {
     store.setCurrentWeekday(currentWeekday);
   });
 
+  if (taskStore.getState().currentWeekday === currentWeekday) {
+    button.classList.add(style.active);
+  }
+
   addReactivity({
-    activeEl: wrapper,
+    activeEl: button,
     numberEl: taskCompletion,
     currentWeekday,
   });
-  return wrapper;
+  return button;
 }
 
 function addReactivity({
