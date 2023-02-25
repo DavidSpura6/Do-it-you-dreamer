@@ -1,4 +1,12 @@
-type IdNames = "nav" | "layout" | "weekdays" | "day_view" | "overview";
+type IdNames =
+  | "nav"
+  | "layout"
+  | "weekdays"
+  | "day_view"
+  | "overview"
+  | "day_view_title"
+  | "day_view_subtitle";
+
 type ElementIDs = `#${IdNames}`;
 
 export function create<T extends keyof HTMLElementTagNameMap>(
@@ -10,9 +18,14 @@ export function create<T extends keyof HTMLElementTagNameMap>(
   return el;
 }
 
-export const get: typeof document.querySelector = (key) => {
+function get(key: ElementIDs): Element;
+function get(key: keyof HTMLElementTagNameMap): Element;
+function get(key: string): Element;
+function get(key: ElementIDs | keyof HTMLElementTagNameMap | string): Element {
   return document.querySelector(key)!;
-};
+}
+
+export { get };
 
 export const createHtml = (html: string) => {
   const range = document.createRange();
