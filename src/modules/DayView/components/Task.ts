@@ -19,7 +19,7 @@ export default function Task(task: TaskType) {
         },
       }),
     {
-      includeLabel: true,
+      // includeLabel: true,
       checked: task.isComplete,
     }
   );
@@ -36,7 +36,7 @@ export default function Task(task: TaskType) {
   });
 
   const html = /*html*/ `<div class="${style.task}">
-  <div class="${style.container} checkbox_wrapper"></div>
+  <div class="${style.container} checkbox_wrapper"> <span class="task_heading_select ${style.task_heading}">${task.heading}</span></div>
   <div class="${style.close} button_wrapper"></div>
   </div>
   `;
@@ -44,5 +44,41 @@ export default function Task(task: TaskType) {
   const element = createHtml(html);
   element.querySelector(".checkbox_wrapper")!.prepend(checkbox);
   element.querySelector(".button_wrapper")!.prepend(button);
+
+  const taskHeadingEL = element.querySelector(
+    ".task_heading_select"
+  ) as HTMLSpanElement;
+
+  taskHeadingEL.addEventListener("dblclick", (e) => {
+    const el = e.currentTarget as HTMLSpanElement;
+    el.contentEditable = "true";
+    el.focus();
+
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    range.collapse(false);
+    const selection = window.getSelection()!;
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    function handleEdit(e: MouseEvent) {
+      const shouldCancelEdit = e.target !== el;
+      if (shouldCancelEdit) {
+        el.contentEditable = "false";
+        window.removeEventListener("click", handleEdit);
+
+        store.updateTask({
+          id: task.id,
+          weekday: task.weekday,
+          update: {
+            heading: taskHeadingEL.innerHTML,
+          },
+        });
+      }
+    }
+
+    window.addEventListener("click", handleEdit);
+  });
+
   return element;
 }
