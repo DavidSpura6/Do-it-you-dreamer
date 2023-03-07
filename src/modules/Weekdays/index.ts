@@ -3,7 +3,6 @@ import { get } from "lib/DOM";
 import Weekday from "./components/Weekday";
 
 const container = get("#weekdays") as Element;
-
 const week = getCurrentWeek();
 
 const render = () => {
@@ -12,4 +11,6 @@ const render = () => {
   });
 };
 
-render();
+export function createWeekdays() {
+  render();
+}

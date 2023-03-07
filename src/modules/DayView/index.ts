@@ -31,11 +31,11 @@ function updateTaskList() {
 }
 
 function getHeadingStrings() {
-  const todaySimpleDate = taskStore.getState().currentWeekday;
-  const todayDate = getDateFromSimpleDate(todaySimpleDate);
-  const isToday = todaySimpleDate === getSimpleDate(new Date());
+  const currentSimpleDate = taskStore.getState().currentWeekday;
+  const todayDate = getDateFromSimpleDate(currentSimpleDate);
+  const isToday = currentSimpleDate === getSimpleDate(new Date());
 
-  const todayDayName = getWeekDayNameFromSimpleDate(todaySimpleDate);
+  const todayDayName = getWeekDayNameFromSimpleDate(currentSimpleDate);
   const title = isToday ? t("weekDayTitle") : todayDayName;
   const subtitle = `${todayDayName} ${todayDate.getDate()}. ${
     todayDate.getMonth() + 1
@@ -93,17 +93,19 @@ function createGUI() {
   updateTaskList();
 }
 
-createGUI();
-taskStore.subscribe((store, prevStore) => {
-  const currentWeekDay = store.currentWeekday;
-  const prevCurrentWeekDay = prevStore.currentWeekday;
+export function createDayView() {
+  createGUI();
+  taskStore.subscribe((store, prevStore) => {
+    const currentWeekDay = store.currentWeekday;
+    const prevCurrentWeekDay = prevStore.currentWeekday;
 
-  const currentTasks = JSON.stringify(store.tasks);
-  const newTasks = JSON.stringify(prevStore.tasks);
+    const currentTasks = JSON.stringify(store.tasks);
+    const newTasks = JSON.stringify(prevStore.tasks);
 
-  const tasksChanged = currentTasks !== newTasks;
-  const weekDayChanged = currentWeekDay !== prevCurrentWeekDay;
+    const tasksChanged = currentTasks !== newTasks;
+    const weekDayChanged = currentWeekDay !== prevCurrentWeekDay;
 
-  if (tasksChanged || weekDayChanged) updateTaskList();
-  if (weekDayChanged) updateHeading();
-});
+    if (tasksChanged || weekDayChanged) updateTaskList();
+    if (weekDayChanged) updateHeading();
+  });
+}
